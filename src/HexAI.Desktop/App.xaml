@@ -1,0 +1,87 @@
+<Application x:Class="HexAI.Desktop.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <!-- Pro Astra.ai Stili Tema Renkleri -->
+        <SolidColorBrush x:Key="BgVeryDark" Color="#0B0F19" /> <!-- Çok koyu uzay mavisi (Sidebar) -->
+        <SolidColorBrush x:Key="BgDark" Color="#111827" />     <!-- Koyu uzay mavisi (Ana Ekran) -->
+        <SolidColorBrush x:Key="BgLighter" Color="#1F2937" />  <!-- Paneller & Kutular -->
+        <SolidColorBrush x:Key="BgHover" Color="#374151" />
+        
+        <SolidColorBrush x:Key="TextLight" Color="#F3F4F6" />
+        <SolidColorBrush x:Key="TextDark" Color="#9CA3AF" />
+        
+        <!-- Vurgu Renkleri -->
+        <SolidColorBrush x:Key="AccentColor" Color="#8B5CF6" /> <!-- Parlak Mor / Neon Purple -->
+        <SolidColorBrush x:Key="AccentHover" Color="#7C3AED" />
+        <SolidColorBrush x:Key="UserIconColor" Color="#3B82F6" />
+        <SolidColorBrush x:Key="AIIconColor" Color="#10B981" /> <!-- Zümrüt Yeşili (AI yanıtları için zarif ikon rengi) -->
+        
+        <!-- Genel Window Stili -->
+        <Style TargetType="Window">
+            <Setter Property="Background" Value="{StaticResource BgDark}" />
+            <Setter Property="Foreground" Value="{StaticResource TextLight}" />
+            <Setter Property="FontFamily" Value="Segoe UI, Roboto, Helvetica, Arial, sans-serif" />
+        </Style>
+
+        <!-- Astra Stili Modern Border (Gölgeli & Yuvarlak köşeli) -->
+        <Style x:Key="GlassBorder" TargetType="Border">
+            <Setter Property="Background" Value="{StaticResource BgLighter}" />
+            <Setter Property="CornerRadius" Value="12" />
+            <Setter Property="BorderBrush" Value="#2A303C" />
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+
+        <!-- Transparan / Şık Buton Stili -->
+        <Style x:Key="SidebarButton" TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="{StaticResource TextLight}" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Padding" Value="10,8" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="6" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{StaticResource BgHover}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="AccentButton" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource AccentColor}" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="8" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{StaticResource AccentHover}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- ScrollBar (Zarif görünüm için temel ezme) -->
+        <Style TargetType="ScrollBar">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="{StaticResource BgHover}" />
+            <Setter Property="Width" Value="8" />
+        </Style>
+    </Application.Resources>
+</Application>

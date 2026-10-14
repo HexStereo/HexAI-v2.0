@@ -1,0 +1,144 @@
+:root {
+    --bg-color: #0d0914; /* Koyu antrasit/mor arka plan */
+    --surface-color: rgba(43, 25, 77, 0.6); /* Yarı saydam kart rengi */
+    --primary-color: #9D00FF; /* Canlı neon mor */
+    --primary-hover: #B533FF;
+    --text-primary: #FFFFFF;
+    --text-secondary: #B39DDB;
+    --border-color: rgba(157, 0, 255, 0.2);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: 
+        radial-gradient(circle at 15% 50%, rgba(157, 0, 255, 0.08), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(157, 0, 255, 0.05), transparent 25%);
+}
+
+.glass-card {
+    background: var(--surface-color);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    margin-bottom: 24px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px 0 rgba(157, 0, 255, 0.15);
+    border: 1px solid rgba(157, 0, 255, 0.4);
+}
+
+.btn-purple {
+    background: linear-gradient(135deg, var(--primary-color), #6200EA);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(157, 0, 255, 0.3);
+}
+
+.btn-purple:hover {
+    background: linear-gradient(135deg, var(--primary-hover), #7C4DFF);
+    box-shadow: 0 6px 20px rgba(157, 0, 255, 0.5);
+    transform: translateY(-1px);
+    color: white;
+}
+
+.btn-purple:disabled {
+    background: #333;
+    color: #888;
+    box-shadow: none;
+    cursor: not-allowed;
+    transform: none;
+}
+
+h1, h2, h3, h4 {
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+h1 {
+    text-shadow: 0 0 20px rgba(157, 0, 255, 0.5);
+    margin-bottom: 1.5rem;
+}
+
+.text-accent {
+    color: var(--primary-color);
+}
+
+/* Sidebar styling for Blazor standard layout */
+.sidebar {
+    background-image: linear-gradient(180deg, rgba(20, 10, 40, 1) 0%, rgba(10, 5, 20, 1) 70%);
+    border-right: 1px solid var(--border-color);
+}
+
+.sidebar .nav-item a {
+    color: var(--text-secondary);
+    border-radius: 8px;
+    margin: 4px 12px;
+    transition: all 0.2s;
+}
+
+.sidebar .nav-item a:hover {
+    background-color: rgba(157, 0, 255, 0.1);
+    color: var(--text-primary);
+}
+
+.sidebar .nav-item a.active {
+    background-color: rgba(157, 0, 255, 0.2);
+    color: var(--primary-color);
+    border-left: 3px solid var(--primary-color);
+}
+
+/* Progress bar for training */
+.progress-container {
+    width: 100%;
+    background-color: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    overflow: hidden;
+    height: 12px;
+    margin: 16px 0;
+    border: 1px solid var(--border-color);
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #6200EA, var(--primary-color));
+    transition: width 0.1s linear;
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+/* Pathfinding Grid */
+.pf-grid {
+    display: inline-grid;
+    gap: 2px;
+    background-color: rgba(255,255,255,0.1);
+    padding: 2px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+
+.pf-cell {
+    width: 30px;
+    height: 30px;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+.pf-empty { background-color: rgba(255,255,255,0.05); }
+.pf-wall { background-color: #333; box-shadow: inset 0 0 5px #000; }
+.pf-start { background-color: #00E676; box-shadow: 0 0 10px #00E676; }
+.pf-end { background-color: #FF1744; box-shadow: 0 0 10px #FF1744; }
+.pf-path { background-color: var(--primary-color); box-shadow: 0 0 10px var(--primary-color); }

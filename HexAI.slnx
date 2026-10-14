@@ -1,0 +1,19 @@
+<Solution>
+  <Folder Name="/cli/">
+    <Project Path="cli/HexAI.CLI/HexAI.CLI.csproj" />
+  </Folder>
+  <Folder Name="/demo/">
+    <Project Path="demo/HexAI.Demo/HexAI.Demo.csproj" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/HexAI.Core/HexAI.Core.csproj" />
+    <Project Path="src/HexAI.NeuralNetwork/HexAI.NeuralNetwork.csproj" />
+    <Project Path="src/HexAI.NLP/HexAI.NLP.csproj" />
+    <Project Path="src/HexAI.Assistant/HexAI.Assistant.csproj" />
+    <Project Path="src/HexAI.Desktop/HexAI.Desktop.csproj" />
+    <Project Path="src/HexAI.WebUI/HexAI.WebUI.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/HexAI.Tests/HexAI.Tests.csproj" />
+  </Folder>
+</Solution>

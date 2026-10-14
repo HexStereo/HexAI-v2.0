@@ -1,0 +1,71 @@
+yapay zeka insanların düşünme yeteneğini taklit eden bilgisayar sistemleridir
+yapay zeka günümüzde hızla gelişen bir teknoloji alanıdır
+makine öğrenimi yapay zekanın önemli bir alt dalıdır
+derin öğrenme sinir ağlarını kullanarak karmaşık problemleri çözer
+sinir ağları insan beyninin çalışma prensibinden ilham alır
+transformer mimarisi modern dil modellerinin temelidir
+dikkat mekanizması kelimelerin birbirleriyle ilişkisini anlamayı sağlar
+doğal dil işleme bilgisayarların insan dilini anlamasını sağlar
+tokenizasyon metni küçük parçalara ayırma işlemidir
+gömme katmanı kelimeleri sayısal vektörlere dönüştürür
+aktivasyon fonksiyonu sinir ağında doğrusal olmayan dönüşüm sağlar
+geri yayılım sinir ağının öğrenmesini sağlayan temel algoritmadır
+öğrenme oranı modelin ne kadar hızlı öğreneceğini belirler
+kayıp fonksiyonu modelin tahminleri ile gerçek değerler arasındaki farkı ölçer
+adam optimizasyonu modern sinir ağlarında en çok kullanılan eniyileme yöntemidir
+aşırı öğrenme modelin eğitim verisini ezberlemesi sorunudur
+düzenleme teknikleri aşırı öğrenmeyi önlemek için kullanılır
+veri artırma eğitim verisini çeşitlendirerek modelin genelleme yeteneğini artırır
+transfer öğrenme önceden eğitilmiş modelleri yeni görevlerde kullanmaktır
+bilgisayar biliminin temel konuları arasında algoritmalar ve veri yapıları bulunur
+programlama dilleri bilgisayarla iletişim kurmamızı sağlayan araçlardır
+işletim sistemi bilgisayar donanımını yöneten yazılımdır
+windows microsoft tarafından geliştirilen popüler bir işletim sistemidir
+dosya sistemi verilerin diskte organize edilme biçimidir
+işlemci bilgisayarın beyni olarak görev yapar
+bellek verilerin geçici olarak saklandığı donanım bileşenidir
+sabit disk verilerin kalıcı olarak depolandığı depolama aygıtıdır
+ağ bilgisayarların birbirleriyle iletişim kurmasını sağlar
+internet dünya çapında bilgisayarları birbirine bağlayan devasa ağdır
+web tarayıcı internet sayfalarını görüntülemeye yarayan yazılımdır
+veritabanı verilerin düzenli olarak saklanmasını sağlayan sistemdir
+güvenlik bilgisayar sistemlerinin korunması için alınan önlemlerdir
+şifreleme verilerin yetkisiz erişimden korunmasını sağlar
+bulut bilişim bilgi teknolojisi kaynaklarının internet üzerinden sunulmasıdır
+yapay sinir ağları katmanlardan oluşan matematiksel modellerdir
+matris çarpımı sinir ağlarının temel matematiksel işlemidir
+gradyan inişi kayıp fonksiyonunu minimize etmek için kullanılan optimizasyon yöntemidir
+veri bilimi veriden değerli bilgiler çıkarma sanatıdır
+büyük veri geleneksel yöntemlerle işlenemeyecek kadar büyük veri kümelerini ifade eder
+otomasyon tekrarlayan görevlerin bilgisayar tarafından yapılmasıdır
+robotik yapay zekanın fiziksel dünyayla etkileşimini sağlayan alandır
+merhaba ben hexai senin kişisel yapay zeka asistanın
+sana nasıl yardımcı olabilirim
+dosyaları listelemek sistem bilgisi sorgulamak veya hesaplama yapmak isteyebilirsin
+powershell komutları çalıştırabilirim
+matematiksel hesaplamalar yapabilirim
+disk alanı ram kullanımı ve sistem bilgilerini sorgulayabilirim
+dosya okuma yazma ve arama işlemleri yapabilirim
+programları açıp kapatabilirm
+beni eğitmek için train komutunu kullanabilirsin
+zamanla daha fazla veri ile eğitilerek daha akıllı olabilirim
+türkiye avrupa ve asya kıtalarında yer alan bir ülkedir
+istanbul türkiyenin en kalabalık şehridir
+ankara türkiyenin başkentidir
+türkiye başkenti ankaradır
+güneş sistemi sekiz gezegen içerir dünya mars jüpiter satürn venüs merkür uranüs neptün
+suyun kimyasal formülü h2o hidrojen ve oksijenden oluşur
+büyük ve küçük birbirinin karşıt zıt anlamlısıdır
+kış ilkbahar yaz sonbahar yılın dört mevsimidir
+merhaba günaydın selam iyi günler en yaygın selamlama ifadeleridir
+kitap okumak bilgi öğrenmek ve zihni geliştirmek için çok faydalıdır
+programlama dilleri ile yazılım ve algoritmalar kodlanır
+bilgisayar işlemcisi cpu tüm hesaplamaları yapan temel birimdir
+makarna yapmak için önce tencerede bol su kaynatın ardından tuz ekleyin ve makarnayı haşlayın
+türk dili ural altay dil ailesine mensup zengin bir dildir
+bilim ve teknoloji insanlığın ilerlemesinde önemli rol oynar
+matematik bilimlerin kraliçesi olarak bilinir
+fizik doğa olaylarını açıklamaya çalışan bilim dalıdır
+kimya maddenin yapısını inceleyen bilim dalıdır
+biyoloji canlıları inceleyen bilim dalıdır
+tarih insanlığın geçmişini araştıran bilim dalıdır

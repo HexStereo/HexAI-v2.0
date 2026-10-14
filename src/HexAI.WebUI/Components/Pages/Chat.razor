@@ -1,0 +1,167 @@
+@page "/chat"
+@using HexAI.NLP
+@using HexAI.NLP.Generative
+@using System.Text
+@rendermode InteractiveServer
+
+<PageTitle>LLM Sohbet - HEX.AI</PageTitle>
+
+<div class="d-flex flex-column h-100">
+    <div class="mb-4">
+        <h1 class="display-6"><i class="bi bi-robot text-accent me-2"></i> LLM Sohbet (Transformer / Mini-GPT)</h1>
+        <p class="text-muted">Bu ekranda, HEX.AI motoru arka planda <b>Embedding, Positional Encoding, Multi-Head Attention ve Layer Normalization</b> katmanlarından oluşan modern bir Transformer modeli eğitir.</p>
+    </div>
+
+    @if (IsTraining)
+    {
+        <div class="card bg-dark border-secondary mb-4">
+            <div class="card-body text-center py-5">
+                <div class="spinner-border text-accent mb-3" role="status" style="width: 3rem; height: 3rem;">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <h5>Transformer Modeli Canlı Eğitiliyor...</h5>
+                <p class="text-muted mb-0">Lütfen bekleyin (Epoch: @CurrentEpoch / @TotalEpochs)</p>
+                <div class="progress mt-3 bg-secondary" style="height: 5px;">
+                    <div class="progress-bar bg-accent" role="progressbar" style="width: @((CurrentEpoch * 100) / TotalEpochs)%"></div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <!-- Chat History -->
+        <div class="flex-grow-1 overflow-auto bg-dark rounded border border-secondary p-3 mb-3 d-flex flex-column" style="min-height: 400px; max-height: 500px;">
+            @foreach (var msg in ChatHistory)
+            {
+                <div class="mb-3 d-flex @(msg.IsUser ? "justify-content-end" : "justify-content-start")">
+                    <div class="p-3 rounded text-white @(msg.IsUser ? "bg-accent" : "bg-secondary")" style="max-width: 75%;">
+                        <div class="small text-white-50 mb-1">@(msg.IsUser ? "Sen" : "HEX.AI (Transformer)")</div>
+                        <div style="font-size: 1.1rem;">@msg.Text</div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <!-- Chat Input -->
+        <div class="input-group">
+            <input type="text" class="form-control bg-dark text-white border-secondary" 
+                   @bind="UserInput" 
+                   @bind:event="oninput"
+                   @onkeyup="HandleKeyUp"
+                   placeholder="Ağa başlangıç kelimesini verin (Örn: yapay, merhaba, ben, derin)..." />
+            <button class="btn btn-accent" @onclick="SendMessage" disabled="@(string.IsNullOrWhiteSpace(UserInput) || _isStreaming)">
+                <i class="bi bi-send-fill"></i> Gönder
+            </button>
+        </div>
+    }
+</div>
+
+@code {
+    private bool IsTraining = true;
+    private int CurrentEpoch = 0;
+    private int TotalEpochs = 2000;
+    private string UserInput = "";
+    private bool _isStreaming = false;
+    
+    private MiniGPT GPTModel = default!;
+    private List<ChatMessage> ChatHistory = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Add welcome message
+        ChatHistory.Add(new ChatMessage { IsUser = false, Text = "Merhaba! Ben HEX.AI Transformer tabanlı sohbet robotuyum. Arka planda eğitildikten sonra, bana başlangıç kelimeleri (Örn: 'yapay', 'merhaba', 'ben') girerek devamını tahmin etmemi isteyebilirsin!" });
+        
+        // Start training in background
+        _ = TrainModelAsync();
+    }
+
+    private async Task TrainModelAsync()
+    {
+        await Task.Yield(); // Free UI thread
+
+        GPTModel = new MiniGPT(hiddenSize: 32, learningRate: 0.1, seed: 42);
+        
+        string corpus = @"merhaba nasılsın ben hexai yapay zeka asistanıyım sana nasıl yardımcı olabilirim 
+                          yapay zeka gelecektir derin öğrenme sinir ağları kullanır transformer modelleri 
+                          chatgpt gibi büyük dil modellerinin temelidir hexai tamamen c# ile sıfırdan yazılmıştır
+                          bugün hava çok güzel kod yazmak için harika bir gün 
+                          büyük dil modelleri metin üretebilir soru cevaplayabilir ve kod yazabilir
+                          c# programlama dili nesne yönelimli ve güçlü bir dildir
+                          makine öğrenmesi verilerden öğrenerek tahminler yapar
+                          yapay zeka her alanda hayatımızı kolaylaştıracak
+                          gelecekte robotlar ve insanlar birlikte çalışacak
+                          derin öğrenme insan beynini taklit eden yapay sinir ağlarına dayanır
+                          doğal dil işleme metinleri anlamamızı sağlar
+                          bilgisayarlar her geçen gün daha akıllı hale geliyor
+                          hexai projesi eğitim amacıyla geliştirilmiş bir prototiptir
+                          veri bilimi günümüzün en popüler mesleklerinden biridir
+                          bulut bilişim sayesinde verilerimize her yerden ulaşabiliriz";
+
+        await Task.Run(() => 
+        {
+            GPTModel.Train(corpus, TotalEpochs, onEpochComplete: (epoch, loss) => 
+            {
+                InvokeAsync(() => {
+                    CurrentEpoch = epoch;
+                    StateHasChanged();
+                });
+            });
+        });
+
+        IsTraining = false;
+        await InvokeAsync(StateHasChanged);
+    }
+
+    private async Task HandleKeyUp(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter" && !string.IsNullOrWhiteSpace(UserInput) && !_isStreaming)
+        {
+            await SendMessage();
+        }
+    }
+
+    private async Task SendMessage()
+    {
+        if (string.IsNullOrWhiteSpace(UserInput) || _isStreaming) return;
+
+        _isStreaming = true;
+        string input = UserInput.Trim();
+        ChatHistory.Add(new ChatMessage { IsUser = true, Text = input });
+        UserInput = "";
+
+        // Add an empty bot message
+        var botMessage = new ChatMessage { IsUser = false, Text = "" };
+        ChatHistory.Add(botMessage);
+        await InvokeAsync(StateHasChanged);
+
+        // Generate response using MiniGPT (15 words)
+        string responseText = GPTModel.Generate(input, generateLength: 15, temperature: 0.7);
+
+        // Extract only the newly generated words
+        var inputWords = Tokenizer.Tokenize(input);
+        var responseWords = responseText.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        var newWords = responseWords.Skip(Math.Min(inputWords.Count, responseWords.Length)).ToArray();
+        
+        if (newWords.Length == 0)
+        {
+            newWords = responseWords;
+        }
+
+        // Stream the response word by word
+        for (int i = 0; i < newWords.Length; i++)
+        {
+            botMessage.Text += (i == 0 ? "" : " ") + newWords[i];
+            await InvokeAsync(StateHasChanged);
+            await Task.Delay(250); // ChatGPT streaming delay
+        }
+
+        _isStreaming = false;
+        await InvokeAsync(StateHasChanged);
+    }
+
+    private class ChatMessage
+    {
+        public bool IsUser { get; set; }
+        public string Text { get; set; } = "";
+    }
+}

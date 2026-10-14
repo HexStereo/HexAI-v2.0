@@ -1,0 +1,65 @@
+[
+  {
+    "Question": "sen kimsin",
+    "Answer": "Ben HexAI, tamamen saf C# ve yerel donanım üzerinde çalışan, hiçbir harici bağlayıcı veya üçüncü taraf model (Qwen, Llama vb.) kullanmayan bağımsız bir yapay zekayım. Intel Core i9 Ultra, 96 GB RAM ve NVIDIA RTX 5090 donanım mimariniz üzerinde en yüksek performansla çalışacak şekilde optimize edildim.",
+    "Confidence": 10.0,
+    "Source": "Sistem Kimliği",
+    "Timestamp": "2026-10-12T00:00:00",
+    "Keywords": ["sen", "kimsin", "hexai", "yapay", "zeka"],
+    "VerificationDetails": { "YerelModel": 10.0 }
+  },
+  {
+    "Question": "donanım özelliklerim nelerdir",
+    "Answer": "Sisteminiz Intel Core i9 Ultra işlemci, 96 GB yüksek hızlı RAM, NVIDIA GeForce RTX 5090 grafik kartı ve 6 TB geniş depolama alanına sahiptir. HexAI matris hesaplamalarını çok çekirdekli SIMD vektörizasyonu ve Ultra donanım profili parametreleriyle (256 gizli boyut, 8 dikkat başlığı, 4 transformer katmanı) bu donanım için optimize etmiştir.",
+    "Confidence": 10.0,
+    "Source": "Sistem Kimliği",
+    "Timestamp": "2026-10-12T00:00:00",
+    "Keywords": ["donanım", "özelliklerim", "nelerdir", "ram", "rtx", "5090", "işlemci"],
+    "VerificationDetails": { "Sistem": 10.0 }
+  },
+  {
+    "Question": "yapay zeka nedir",
+    "Answer": "Yapay zeka (YZ), insan zekasını taklit ederek öğrenme, muhakeme, problem çözme ve karar verme yeteneklerini bilgisayar sistemlerine kazandıran disiplinlerarası bilim ve mühendislik alanıdır. Makine öğrenimi, derin öğrenme ve sinir ağları yapay zekanın temel alt dallarıdır.",
+    "Confidence": 9.9,
+    "Source": "Doğrulanmış Bilimsel Olgu",
+    "Timestamp": "2026-10-12T00:00:00",
+    "Keywords": ["yapay", "zeka", "nedir", "öğrenme", "muhakeme"],
+    "VerificationDetails": { "Bilim": 9.9 }
+  },
+  {
+    "Question": "transformer mimarisi nedir",
+    "Answer": "Transformer mimarisi, 2017 yılında 'Attention Is All You Need' makalesiyle tanıtılan ve rekürsif ağlar yerine tamamen dikkat (self-attention) mekanizmalarına dayanan derin öğrenme mimarisidir. Sıralı verileri paralel işleyerek dil modelleri ve çok modlu yapay zeka sistemlerinde devrim yaratmıştır.",
+    "Confidence": 9.8,
+    "Source": "Doğrulanmış Bilimsel Olgu",
+    "Timestamp": "2026-10-12T00:00:00",
+    "Keywords": ["transformer", "mimarisi", "nedir", "dikkat", "attention"],
+    "VerificationDetails": { "Bilim": 9.8 }
+  },
+  {
+    "Question": "rtx 5090 nedir",
+    "Answer": "NVIDIA GeForce RTX 5090, Blackwell mimarisine dayanan, son derece yüksek CUDA çekirdek sayısı, GDDR7 bellek ve yeni nesil Tensor çekirdekleriyle yapay zeka iş yükleri ve derin öğrenme hesaplamaları için üst düzey performans sunan amiral gemisi grafik işlemcisidir.",
+    "Confidence": 9.8,
+    "Source": "Donanım Bilgisi",
+    "Timestamp": "2026-10-12T00:00:00",
+    "Keywords": ["rtx", "5090", "nedir", "nvidia", "ekran", "kartı", "blackwell"],
+    "VerificationDetails": { "Donanım": 9.8 }
+  },
+  {
+    "Question": "simd nedir",
+    "Answer": "SIMD (Single Instruction, Multiple Data), işlemcinin tek bir komutla birden çok veri öğesi üzerinde aynı anda paralel işlem yapmasını sağlayan donanım vektörizasyon teknolojisidir. AVX, AVX2 ve AVX-512 yönerge setleri ile matris çarpımları ve sinir ağı tensör işlemleri devasa hız kazanır.",
+    "Confidence": 9.7,
+    "Source": "Bilgisayar Mimarisi",
+    "Timestamp": "2026-10-12T00:00:00",
+    "Keywords": ["simd", "nedir", "vektörizasyon", "avx", "işlemci"],
+    "VerificationDetails": { "Mimari": 9.7 }
+  },
+  {
+    "Question": "zaman kararlılığı testi nedir",
+    "Answer": "Zaman kararlılığı (Time Stability), bir yapay zekanın veya algoritmanın ardışık problem çözme adımlarında yanıt süreleri ve karar süreçleri arasındaki tutarlılığı ölçer. Varyasyon katsayısı (CV) ve gecikme sapması (jitter) hesaplanarak sistemin kararlılık indeksi yüzde olarak raporlanır.",
+    "Confidence": 9.9,
+    "Source": "Benchmark Metodolojisi",
+    "Timestamp": "2026-10-12T00:00:00",
+    "Keywords": ["zaman", "kararlılığı", "testi", "nedir", "stability", "jitter"],
+    "VerificationDetails": { "Ölçüm": 9.9 }
+  }
+]

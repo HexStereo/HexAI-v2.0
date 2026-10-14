@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\HexAI.Core\HexAI.Core.csproj" />
+    <ProjectReference Include="..\HexAI.NeuralNetwork\HexAI.NeuralNetwork.csproj" />
+    <ProjectReference Include="..\HexAI.NLP\HexAI.NLP.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>
